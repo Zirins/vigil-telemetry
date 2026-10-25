@@ -4,9 +4,13 @@ AI-powered observability and incident intelligence platform. Vigil ingests appli
 
 This is a streaming telemetry pipeline with anomaly detection — not a log viewer with a chatbot bolted on.
 
+Built with AI coding assistants; behavior verified via the test suite and benchmarks below.
+
 ## Live Demo
 
 [https://getvigilapp.vercel.app](https://getvigilapp.vercel.app)
+
+The hosted demo is a snapshot of simulated data. No simulator runs continuously, so the dashboard shows Snapshot Mode. To see live streaming, run `python simulator/simulate.py --base-url <your backend URL> --duration 90 --rate 4`.
 
 ## Tech Stack
 
@@ -30,9 +34,8 @@ This is a streaming telemetry pipeline with anomaly detection — not a log view
 | Event simulator | **Complete** — `simulator/simulate.py` |
 | Frontend dashboard | **Complete** — services, live streams, incidents, AI reports |
 | Benchmark scripts | **Complete** — `backend/scripts/benchmark.py`, `throughput_benchmark.py` |
-| Railway deployment | **In progress** — Dockerfile + `railway.toml`; healthcheck start command fixed |
-| Vercel deployment | **In progress** — configure `NEXT_PUBLIC_API_URL` and `NEXT_PUBLIC_WS_URL` |
-| Demo video | **Not started** |
+| Railway deployment | **Complete** — deployed on Railway |
+| Vercel deployment | **Complete** — live at [https://getvigilapp.vercel.app](https://getvigilapp.vercel.app) |
 
 ## Benchmark Results
 
@@ -77,6 +80,8 @@ Postgres + API on the same host, **1** sequential HTTP client.
 | 50 events/s | 49.6/s | 42ms | 0 |
 | 100 events/s | **99.2/s** | **89ms** | 0 |
 
+Single sequential client, local Postgres on one laptop, INFO-level batches (detection lookback queries not exercised): a best-case number, not a capacity claim.
+
 Log: `benchmarks/results/throughput_20261003T221623Z.log`. P99 is
 hardware-dependent; re-run before quoting.
 
@@ -108,7 +113,7 @@ Create the named volume once (data survives container removal):
 docker volume create vigil-postgres-data
 ```
 
-Start Postgres (host port **5434** avoids conflicts with other local projects on 5433):
+Start Postgres (exposed on host port **5434**):
 
 ```bash
 docker run --name vigil-postgres \
@@ -190,7 +195,7 @@ See [`benchmarks/results/COMMANDS.md`](benchmarks/results/COMMANDS.md) for the e
 
 ## Running Tests
 
-Start PostgreSQL (host port **5434** avoids conflicts with other local projects on 5433):
+Start PostgreSQL (exposed on host port **5434**):
 
 ```bash
 docker run --name vigil-postgres \
