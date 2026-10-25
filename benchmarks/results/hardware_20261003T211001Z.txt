@@ -1,0 +1,9 @@
+﻿Hardware / environment for benchmark logs stamped 20261003T211001Z
+OS: Microsoft Windows 11 Home 10.0.26200
+CPU: Intel(R) Core(TM) Ultra 9 275HX
+Logical processors: 24
+RAM_GB: 31.4
+Model: LENOVO 83F5
+Postgres: docker postgres:16 vigil-postgres host:5434
+API: uvicorn app.main:app 127.0.0.1:8001 (single worker)
+Throughput clients: 1 sequential httpx.AsyncClient

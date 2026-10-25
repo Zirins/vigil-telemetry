@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* ─── Light theme ─── */
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+    --chart-1: 221 83% 53%;
+    --chart-2: 160 84% 39%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 262 75% 65%;
+    --chart-5: 0 84% 60%;
+    --radius: 0.25rem;
+    --font-mono: "ui-monospace";
+  }
+
+  /* ─── Dark theme: GitHub-dark / SRE console aesthetic ─── */
+  .dark {
+    /* #0d1117 background */
+    --background: 215 28% 7%;
+    /* #e6edf3 text */
+    --foreground: 210 30% 93%;
+    /* #161b22 cards */
+    --card: 214 21% 10%;
+    --card-foreground: 210 30% 93%;
+    /* #0d1117 popover */
+    --popover: 215 28% 7%;
+    --popover-foreground: 210 30% 93%;
+    /* #58a6ff primary accent */
+    --primary: 212 100% 67%;
+    --primary-foreground: 215 28% 7%;
+    /* secondary surfaces */
+    --secondary: 213 18% 16%;
+    --secondary-foreground: 210 20% 82%;
+    /* #1c2128 muted surface */
+    --muted: 213 17% 13%;
+    /* #8b949e muted text */
+    --muted-foreground: 210 12% 56%;
+    --accent: 213 18% 17%;
+    --accent-foreground: 210 30% 93%;
+    /* #ef4444 destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 30% 93%;
+    /* #30363d border */
+    --border: 211 12% 20%;
+    --input: 211 13% 22%;
+    --ring: 212 100% 67%;
+    /* chart: sky-blue (cpu), red (error) */
+    --chart-1: 199 92% 60%;
+    --chart-2: 160 84% 39%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 262 75% 65%;
+    --chart-5: 0 84% 60%;
+    --radius: 0.5rem;
+    --font-mono: "ui-monospace";
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Scrollbar styling for terminal panels */
+  .dark .scroll-dark::-webkit-scrollbar {
+    width: 6px;
+  }
+  .dark .scroll-dark::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .dark .scroll-dark::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+  .dark .scroll-dark::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+}
+
+@layer utilities {
+  /* Blinking terminal cursor */
+  .cursor-blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  /* Used on chart tooltip for dark bg */
+  .chart-tooltip {
+    @apply rounded-lg border border-border bg-card px-3 py-2 text-xs shadow-xl;
+  }
+}
