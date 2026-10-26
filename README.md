@@ -2,7 +2,7 @@
 
 Vigil ingests application logs and metrics over HTTP in batches, flags anomalies with statistical detectors (z-score spike, error-rate burst, repeated-error pattern), opens incidents automatically, and streams events to a live dashboard over WebSockets. Optional post-incident analysis with Claude (summary, root cause, remediation steps) is off by default; enable it with ENABLE_LIVE_AI_ANALYSIS.
 
-Built with AI coding assistants; behavior verified via the test suite and benchmarks below.
+Built with AI coding assistants. Open-incident dedup under concurrent requests is covered by an integration test against real PostgreSQL; detection quality and ingestion throughput are measured by the benchmark scripts below (no broader unit test coverage yet).
 
 ## Live Demo
 
