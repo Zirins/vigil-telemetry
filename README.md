@@ -204,6 +204,8 @@ alembic upgrade head
 pytest
 ```
 
+Expect **3 passed** (`tests/test_dedup_concurrency.py` and `tests/test_health.py`).
+
 > [!NOTE]
 > The concurrency test needs a real Postgres at `DATABASE_URL`. It dynamically creates and deletes its own test service, and should be pointed at a throwaway DB, not demo data.
 
@@ -278,6 +280,7 @@ vigil-telemetry/
 │   ├── scripts/
 │   │   ├── benchmark.py         # Detection accuracy benchmark
 │   │   └── throughput_benchmark.py
+│   ├── tests/                   # Pytest suite (concurrency dedup, health)
 │   ├── Dockerfile
 │   └── railway.toml
 ├── benchmarks/
