@@ -10,7 +10,7 @@ This is a cleaned public copy of a private development repo (May-Jul 2026). The 
 
 [https://getvigilapp.vercel.app](https://getvigilapp.vercel.app)
 
-The hosted demo is a snapshot of simulated data. No simulator runs continuously, so the dashboard shows Snapshot Mode. To see live streaming, run `python simulator/simulate.py --base-url <your backend URL> --duration 90 --rate 4`.
+The hosted demo is a snapshot of simulated data. No simulator runs continuously, so the dashboard shows Snapshot Mode. The AI incident report shown on the demo's seeded incident is pre-written sample text, not live Claude output. To see live streaming, run `python simulator/simulate.py --base-url <your backend URL> --duration 90 --rate 4`.
 
 ## Tech Stack
 
