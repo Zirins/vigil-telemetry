@@ -4,6 +4,8 @@ Vigil ingests application logs and metrics over HTTP in batches, flags anomalies
 
 Built with AI coding assistants. Open-incident dedup under concurrent requests is covered by an integration test against real PostgreSQL; detection quality and ingestion throughput are measured by the benchmark scripts below (no broader unit test coverage yet).
 
+This is a cleaned public copy of a private development repo (May-Jul 2026). The original commit history is not included because it contained credentials; the code, benchmarks, and tests are the same project.
+
 ## Live Demo
 
 [https://getvigilapp.vercel.app](https://getvigilapp.vercel.app)
