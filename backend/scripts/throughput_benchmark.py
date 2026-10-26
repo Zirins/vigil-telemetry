@@ -5,9 +5,9 @@ Measure Vigil event ingestion throughput and POST /events latency.
 Registers a dedicated service, runs four rate tiers (10/25/50/100 events/sec),
 and reports achieved throughput, response latency percentiles, and confirmed DB writes.
 
-Run from project root (backend must be running on localhost:8000):
+Run from project root (backend must be running on localhost:8001):
     python backend/scripts/throughput_benchmark.py
-    python backend/scripts/throughput_benchmark.py --base-url http://localhost:8000
+    python backend/scripts/throughput_benchmark.py --base-url http://localhost:8001
 """
 
 from __future__ import annotations
@@ -22,7 +22,7 @@ from typing import Any
 
 import httpx
 
-DEFAULT_BASE_URL = "http://localhost:8000"
+DEFAULT_BASE_URL = "http://localhost:8001"
 DEFAULT_TIER_DURATION = 30.0
 DEFAULT_BATCH_INTERVAL = 1.0
 FAILURE_THRESHOLD = 0.05

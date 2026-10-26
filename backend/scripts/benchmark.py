@@ -35,7 +35,7 @@ from typing import Any, TextIO
 
 import httpx
 
-DEFAULT_BASE_URL = "http://localhost:8000"
+DEFAULT_BASE_URL = "http://localhost:8001"
 DEFAULT_SERVICE_NAME = "benchmark-service"
 DEFAULT_ROUNDS = 5
 DEFAULT_REPEATS = 3

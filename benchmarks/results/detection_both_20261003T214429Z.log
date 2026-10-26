@@ -1,0 +1,892 @@
+Logging to benchmarks\results\detection_both_20261003T214429Z.log
+Vigil detection benchmark
+  base_url=http://127.0.0.1:8001
+  schedule=both
+  rounds=5 repeats=3
+  round_duration=60.0s rate=4.0/s
+  Fair-eval note: fresh service_id per round so open-incident dedup cannot poison later rounds; production dedup still applies within each round.
+
+******************************************************************************
+* SCHEDULE: tuning
+* Injections/round: 7
+*   t=20s  metric_spike → spike
+*   t=26s  error_burst → error_rate
+*   t=32s  rage_pattern → rage_pattern
+*   t=38s  metric_spike → spike
+*   t=44s  error_burst → error_rate
+*   t=50s  rage_pattern → rage_pattern
+*   t=56s  metric_spike → spike
+* Rounds=5  Repeats=3
+******************************************************************************
+
+>>> Repeat 1/3 (tuning)
+
+--- Round 1 (service_id=54) ---
+  Schedule: tuning
+  Started:  2026-10-03T21:44:29.799453+00:00
+  Injections scheduled: 7
+  [ 20.1s] inject metric_spike → expect detection_type=spike (gt #1, ok=True)
+  [ 26.2s] inject error_burst → expect detection_type=error_rate (gt #2, ok=True)
+  [ 32.2s] inject rage_pattern → expect detection_type=rage_pattern (gt #3, ok=True)
+  [ 38.3s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 44.3s] inject error_burst → expect detection_type=error_rate (gt #5, ok=True)
+  [ 50.4s] inject rage_pattern → expect detection_type=rage_pattern (gt #6, ok=True)
+  [ 56.4s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 2
+    id=530 status=open type=spike created=2026-10-03T21:44:49.746007
+    id=531 status=open type=error_rate created=2026-10-03T21:44:55.278950
+  Aggregate: TP=2 FP=0 FN=5 | P=100.0% R=28.6% F1=44.4%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=0 FP=0 FN=2 P=0.0% R=0.0% F1=0.0%
+  Mean detection latency: 0ms
+
+--- Round 2 (service_id=55) ---
+  Schedule: tuning
+  Started:  2026-10-03T21:45:32.769189+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject metric_spike → expect detection_type=spike (gt #1, ok=True)
+  [ 26.2s] inject error_burst → expect detection_type=error_rate (gt #2, ok=True)
+  [ 32.2s] inject rage_pattern → expect detection_type=rage_pattern (gt #3, ok=True)
+  [ 38.3s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 44.4s] inject error_burst → expect detection_type=error_rate (gt #5, ok=True)
+  [ 50.4s] inject rage_pattern → expect detection_type=rage_pattern (gt #6, ok=True)
+  [ 56.5s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 2
+    id=532 status=open type=spike created=2026-10-03T21:45:53.087349
+    id=533 status=open type=error_rate created=2026-10-03T21:45:58.622384
+  Aggregate: TP=2 FP=0 FN=5 | P=100.0% R=28.6% F1=44.4%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=0 FP=0 FN=2 P=0.0% R=0.0% F1=0.0%
+  Mean detection latency: 51ms
+
+--- Round 3 (service_id=56) ---
+  Schedule: tuning
+  Started:  2026-10-03T21:46:35.857112+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject metric_spike → expect detection_type=spike (gt #1, ok=True)
+  [ 26.2s] inject error_burst → expect detection_type=error_rate (gt #2, ok=True)
+  [ 32.2s] inject rage_pattern → expect detection_type=rage_pattern (gt #3, ok=True)
+  [ 38.3s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 44.4s] inject error_burst → expect detection_type=error_rate (gt #5, ok=True)
+  [ 50.4s] inject rage_pattern → expect detection_type=rage_pattern (gt #6, ok=True)
+  [ 56.5s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 2
+    id=534 status=open type=spike created=2026-10-03T21:46:56.312418
+    id=535 status=open type=error_rate created=2026-10-03T21:47:01.795719
+  Aggregate: TP=2 FP=0 FN=5 | P=100.0% R=28.6% F1=44.4%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=0 FP=0 FN=2 P=0.0% R=0.0% F1=0.0%
+  Mean detection latency: 137ms
+
+--- Round 4 (service_id=57) ---
+  Schedule: tuning
+  Started:  2026-10-03T21:47:38.898244+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject metric_spike → expect detection_type=spike (gt #1, ok=True)
+  [ 26.3s] inject error_burst → expect detection_type=error_rate (gt #2, ok=True)
+  [ 32.3s] inject rage_pattern → expect detection_type=rage_pattern (gt #3, ok=True)
+  [ 38.4s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 44.4s] inject error_burst → expect detection_type=error_rate (gt #5, ok=True)
+  [ 50.5s] inject rage_pattern → expect detection_type=rage_pattern (gt #6, ok=True)
+  [ 56.6s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 2
+    id=536 status=open type=spike created=2026-10-03T21:47:59.637511
+    id=537 status=open type=error_rate created=2026-10-03T21:48:05.158601
+  Aggregate: TP=2 FP=0 FN=5 | P=100.0% R=28.6% F1=44.4%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=0 FP=0 FN=2 P=0.0% R=0.0% F1=0.0%
+  Mean detection latency: 263ms
+
+--- Round 5 (service_id=58) ---
+  Schedule: tuning
+  Started:  2026-10-03T21:48:42.000615+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject metric_spike → expect detection_type=spike (gt #1, ok=True)
+  [ 26.3s] inject error_burst → expect detection_type=error_rate (gt #2, ok=True)
+  [ 32.3s] inject rage_pattern → expect detection_type=rage_pattern (gt #3, ok=True)
+  [ 38.4s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 44.4s] inject error_burst → expect detection_type=error_rate (gt #5, ok=True)
+  [ 50.5s] inject rage_pattern → expect detection_type=rage_pattern (gt #6, ok=True)
+  [ 56.6s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 2
+    id=538 status=open type=spike created=2026-10-03T21:49:03.090401
+    id=539 status=open type=error_rate created=2026-10-03T21:49:08.646394
+  Aggregate: TP=2 FP=0 FN=5 | P=100.0% R=28.6% F1=44.4%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=0 FP=0 FN=2 P=0.0% R=0.0% F1=0.0%
+  Mean detection latency: 530ms
+
+==============================================================================
+VIGIL DETECTION BENCHMARK — schedule=tuning repeat=1
+==============================================================================
+  Rounds:                  5
+  Ground-truth injections: 35
+  Incidents created:       10
+  Match window:            10s
+  Eval design:             fresh service per round; production dedup on
+
+  Round   Svc     TP    FP    FN    Precision   Recall      F1        MTTD      
+  --------------------------------------------------------------------------
+  1       54      2     0     5     100.0%      28.6%       44.4%          0ms
+  2       55      2     0     5     100.0%      28.6%       44.4%         51ms
+  3       56      2     0     5     100.0%      28.6%       44.4%        137ms
+  4       57      2     0     5     100.0%      28.6%       44.4%        263ms
+  5       58      2     0     5     100.0%      28.6%       44.4%        530ms
+  --------------------------------------------------------------------------
+  TOTAL           10    0     25    100.0%      28.6%       44.4%        196ms
+
+  Aggregate metrics
+    Precision: 100.0%
+    Recall:    28.6%
+    F1 Score:  44.4%
+    Mean Detection Latency (MTTD): 196.4ms
+
+  Per anomaly type (detection_type)
+    Type          TP    FP    FN    Precision   Recall      F1        
+    spike         5     0     10    100.0%      33.3%       50.0%     
+    error_rate    5     0     5     100.0%      50.0%       66.7%     
+    rage_pattern  0     0     10    0.0%        0.0%        0.0%      
+==============================================================================
+
+>>> Repeat 2/3 (tuning)
+
+--- Round 1 (service_id=59) ---
+  Schedule: tuning
+  Started:  2026-10-03T21:49:46.094682+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject metric_spike → expect detection_type=spike (gt #1, ok=True)
+  [ 26.2s] inject error_burst → expect detection_type=error_rate (gt #2, ok=True)
+  [ 32.3s] inject rage_pattern → expect detection_type=rage_pattern (gt #3, ok=True)
+  [ 38.3s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 44.4s] inject error_burst → expect detection_type=error_rate (gt #5, ok=True)
+  [ 50.4s] inject rage_pattern → expect detection_type=rage_pattern (gt #6, ok=True)
+  [ 56.5s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 2
+    id=540 status=open type=spike created=2026-10-03T21:50:07.300369
+    id=541 status=open type=error_rate created=2026-10-03T21:50:12.766279
+  Aggregate: TP=2 FP=0 FN=5 | P=100.0% R=28.6% F1=44.4%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=0 FP=0 FN=2 P=0.0% R=0.0% F1=0.0%
+  Mean detection latency: 645ms
+
+--- Round 2 (service_id=60) ---
+  Schedule: tuning
+  Started:  2026-10-03T21:50:49.120440+00:00
+  Injections scheduled: 7
+  [ 20.1s] inject metric_spike → expect detection_type=spike (gt #1, ok=True)
+  [ 26.2s] inject error_burst → expect detection_type=error_rate (gt #2, ok=True)
+  [ 32.2s] inject rage_pattern → expect detection_type=rage_pattern (gt #3, ok=True)
+  [ 38.3s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 44.3s] inject error_burst → expect detection_type=error_rate (gt #5, ok=True)
+  [ 50.4s] inject rage_pattern → expect detection_type=rage_pattern (gt #6, ok=True)
+  [ 56.5s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 2
+    id=542 status=open type=spike created=2026-10-03T21:51:10.514026
+    id=543 status=open type=error_rate created=2026-10-03T21:51:15.975655
+  Aggregate: TP=2 FP=0 FN=5 | P=100.0% R=28.6% F1=44.4%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=0 FP=0 FN=2 P=0.0% R=0.0% F1=0.0%
+  Mean detection latency: 898ms
+
+--- Round 3 (service_id=61) ---
+  Schedule: tuning
+  Started:  2026-10-03T21:51:52.149642+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject metric_spike → expect detection_type=spike (gt #1, ok=True)
+  [ 26.3s] inject error_burst → expect detection_type=error_rate (gt #2, ok=True)
+  [ 32.3s] inject rage_pattern → expect detection_type=rage_pattern (gt #3, ok=True)
+  [ 38.4s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 44.4s] inject error_burst → expect detection_type=error_rate (gt #5, ok=True)
+  [ 50.5s] inject rage_pattern → expect detection_type=rage_pattern (gt #6, ok=True)
+  [ 56.5s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 2
+    id=544 status=open type=spike created=2026-10-03T21:52:13.804916
+    id=545 status=open type=error_rate created=2026-10-03T21:52:19.357323
+  Aggregate: TP=2 FP=0 FN=5 | P=100.0% R=28.6% F1=44.4%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=0 FP=0 FN=2 P=0.0% R=0.0% F1=0.0%
+  Mean detection latency: 1134ms
+
+--- Round 4 (service_id=62) ---
+  Schedule: tuning
+  Started:  2026-10-03T21:52:55.222542+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject metric_spike → expect detection_type=spike (gt #1, ok=True)
+  [ 26.2s] inject error_burst → expect detection_type=error_rate (gt #2, ok=True)
+  [ 32.3s] inject rage_pattern → expect detection_type=rage_pattern (gt #3, ok=True)
+  [ 38.3s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 44.4s] inject error_burst → expect detection_type=error_rate (gt #5, ok=True)
+  [ 50.5s] inject rage_pattern → expect detection_type=rage_pattern (gt #6, ok=True)
+  [ 56.5s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 2
+    id=546 status=open type=spike created=2026-10-03T21:53:17.034944
+    id=547 status=open type=error_rate created=2026-10-03T21:53:22.588041
+  Aggregate: TP=2 FP=0 FN=5 | P=100.0% R=28.6% F1=44.4%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=0 FP=0 FN=2 P=0.0% R=0.0% F1=0.0%
+  Mean detection latency: 1353ms
+
+--- Round 5 (service_id=63) ---
+  Schedule: tuning
+  Started:  2026-10-03T21:53:58.299400+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject metric_spike → expect detection_type=spike (gt #1, ok=True)
+  [ 26.2s] inject error_burst → expect detection_type=error_rate (gt #2, ok=True)
+  [ 32.2s] inject rage_pattern → expect detection_type=rage_pattern (gt #3, ok=True)
+  [ 38.3s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 44.4s] inject error_burst → expect detection_type=error_rate (gt #5, ok=True)
+  [ 50.4s] inject rage_pattern → expect detection_type=rage_pattern (gt #6, ok=True)
+  [ 56.4s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 2
+    id=548 status=open type=spike created=2026-10-03T21:54:17.448033
+    id=549 status=open type=error_rate created=2026-10-03T21:54:25.919691
+  Aggregate: TP=2 FP=0 FN=5 | P=100.0% R=28.6% F1=44.4%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=0 FP=0 FN=2 P=0.0% R=0.0% F1=0.0%
+  Mean detection latency: 655ms
+
+==============================================================================
+VIGIL DETECTION BENCHMARK — schedule=tuning repeat=2
+==============================================================================
+  Rounds:                  5
+  Ground-truth injections: 35
+  Incidents created:       10
+  Match window:            10s
+  Eval design:             fresh service per round; production dedup on
+
+  Round   Svc     TP    FP    FN    Precision   Recall      F1        MTTD      
+  --------------------------------------------------------------------------
+  1       59      2     0     5     100.0%      28.6%       44.4%        645ms
+  2       60      2     0     5     100.0%      28.6%       44.4%        898ms
+  3       61      2     0     5     100.0%      28.6%       44.4%       1134ms
+  4       62      2     0     5     100.0%      28.6%       44.4%       1353ms
+  5       63      2     0     5     100.0%      28.6%       44.4%        655ms
+  --------------------------------------------------------------------------
+  TOTAL           10    0     25    100.0%      28.6%       44.4%        937ms
+
+  Aggregate metrics
+    Precision: 100.0%
+    Recall:    28.6%
+    F1 Score:  44.4%
+    Mean Detection Latency (MTTD): 937.1ms
+
+  Per anomaly type (detection_type)
+    Type          TP    FP    FN    Precision   Recall      F1        
+    spike         5     0     10    100.0%      33.3%       50.0%     
+    error_rate    5     0     5     100.0%      50.0%       66.7%     
+    rage_pattern  0     0     10    0.0%        0.0%        0.0%      
+==============================================================================
+
+>>> Repeat 3/3 (tuning)
+
+--- Round 1 (service_id=64) ---
+  Schedule: tuning
+  Started:  2026-10-03T21:55:02.275645+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject metric_spike → expect detection_type=spike (gt #1, ok=True)
+  [ 26.2s] inject error_burst → expect detection_type=error_rate (gt #2, ok=True)
+  [ 32.3s] inject rage_pattern → expect detection_type=rage_pattern (gt #3, ok=True)
+  [ 38.3s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 44.4s] inject error_burst → expect detection_type=error_rate (gt #5, ok=True)
+  [ 50.5s] inject rage_pattern → expect detection_type=rage_pattern (gt #6, ok=True)
+  [ 56.6s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 2
+    id=550 status=open type=spike created=2026-10-03T21:55:21.681027
+    id=551 status=open type=error_rate created=2026-10-03T21:55:30.037534
+  Aggregate: TP=2 FP=0 FN=5 | P=100.0% R=28.6% F1=44.4%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=0 FP=0 FN=2 P=0.0% R=0.0% F1=0.0%
+  Mean detection latency: 706ms
+
+--- Round 2 (service_id=65) ---
+  Schedule: tuning
+  Started:  2026-10-03T21:56:05.429616+00:00
+  Injections scheduled: 7
+  [ 20.1s] inject metric_spike → expect detection_type=spike (gt #1, ok=True)
+  [ 26.2s] inject error_burst → expect detection_type=error_rate (gt #2, ok=True)
+  [ 32.2s] inject rage_pattern → expect detection_type=rage_pattern (gt #3, ok=True)
+  [ 38.3s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 44.4s] inject error_burst → expect detection_type=error_rate (gt #5, ok=True)
+  [ 50.4s] inject rage_pattern → expect detection_type=rage_pattern (gt #6, ok=True)
+  [ 56.4s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 2
+    id=552 status=open type=spike created=2026-10-03T21:56:24.832396
+    id=553 status=open type=error_rate created=2026-10-03T21:56:33.345297
+  Aggregate: TP=2 FP=0 FN=5 | P=100.0% R=28.6% F1=44.4%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=0 FP=0 FN=2 P=0.0% R=0.0% F1=0.0%
+  Mean detection latency: 823ms
+
+--- Round 3 (service_id=66) ---
+  Schedule: tuning
+  Started:  2026-10-03T21:57:08.412446+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject metric_spike → expect detection_type=spike (gt #1, ok=True)
+  [ 26.3s] inject error_burst → expect detection_type=error_rate (gt #2, ok=True)
+  [ 32.3s] inject rage_pattern → expect detection_type=rage_pattern (gt #3, ok=True)
+  [ 38.4s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 44.5s] inject error_burst → expect detection_type=error_rate (gt #5, ok=True)
+  [ 50.5s] inject rage_pattern → expect detection_type=rage_pattern (gt #6, ok=True)
+  [ 56.6s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 2
+    id=554 status=open type=spike created=2026-10-03T21:57:28.310295
+    id=555 status=open type=error_rate created=2026-10-03T21:57:33.882860
+  Aggregate: TP=2 FP=0 FN=5 | P=100.0% R=28.6% F1=44.4%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=0 FP=0 FN=2 P=0.0% R=0.0% F1=0.0%
+  Mean detection latency: 0ms
+
+--- Round 4 (service_id=67) ---
+  Schedule: tuning
+  Started:  2026-10-03T21:58:11.543518+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject metric_spike → expect detection_type=spike (gt #1, ok=True)
+  [ 26.2s] inject error_burst → expect detection_type=error_rate (gt #2, ok=True)
+  [ 32.3s] inject rage_pattern → expect detection_type=rage_pattern (gt #3, ok=True)
+  [ 38.3s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 44.4s] inject error_burst → expect detection_type=error_rate (gt #5, ok=True)
+  [ 50.4s] inject rage_pattern → expect detection_type=rage_pattern (gt #6, ok=True)
+  [ 56.5s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 2
+    id=556 status=open type=spike created=2026-10-03T21:58:31.551386
+    id=557 status=open type=error_rate created=2026-10-03T21:58:36.998186
+  Aggregate: TP=2 FP=0 FN=5 | P=100.0% R=28.6% F1=44.4%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=0 FP=0 FN=2 P=0.0% R=0.0% F1=0.0%
+  Mean detection latency: 0ms
+
+--- Round 5 (service_id=68) ---
+  Schedule: tuning
+  Started:  2026-10-03T21:59:14.605575+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject metric_spike → expect detection_type=spike (gt #1, ok=True)
+  [ 26.2s] inject error_burst → expect detection_type=error_rate (gt #2, ok=True)
+  [ 32.3s] inject rage_pattern → expect detection_type=rage_pattern (gt #3, ok=True)
+  [ 38.4s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 44.4s] inject error_burst → expect detection_type=error_rate (gt #5, ok=True)
+  [ 50.5s] inject rage_pattern → expect detection_type=rage_pattern (gt #6, ok=True)
+  [ 56.5s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 2
+    id=558 status=open type=spike created=2026-10-03T21:59:34.904899
+    id=559 status=open type=error_rate created=2026-10-03T21:59:40.409429
+  Aggregate: TP=2 FP=0 FN=5 | P=100.0% R=28.6% F1=44.4%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=0 FP=0 FN=2 P=0.0% R=0.0% F1=0.0%
+  Mean detection latency: 33ms
+
+==============================================================================
+VIGIL DETECTION BENCHMARK — schedule=tuning repeat=3
+==============================================================================
+  Rounds:                  5
+  Ground-truth injections: 35
+  Incidents created:       10
+  Match window:            10s
+  Eval design:             fresh service per round; production dedup on
+
+  Round   Svc     TP    FP    FN    Precision   Recall      F1        MTTD      
+  --------------------------------------------------------------------------
+  1       64      2     0     5     100.0%      28.6%       44.4%        706ms
+  2       65      2     0     5     100.0%      28.6%       44.4%        823ms
+  3       66      2     0     5     100.0%      28.6%       44.4%          0ms
+  4       67      2     0     5     100.0%      28.6%       44.4%          0ms
+  5       68      2     0     5     100.0%      28.6%       44.4%         33ms
+  --------------------------------------------------------------------------
+  TOTAL           10    0     25    100.0%      28.6%       44.4%        312ms
+
+  Aggregate metrics
+    Precision: 100.0%
+    Recall:    28.6%
+    F1 Score:  44.4%
+    Mean Detection Latency (MTTD): 312.4ms
+
+  Per anomaly type (detection_type)
+    Type          TP    FP    FN    Precision   Recall      F1        
+    spike         5     0     10    100.0%      33.3%       50.0%     
+    error_rate    5     0     5     100.0%      50.0%       66.7%     
+    rage_pattern  0     0     10    0.0%        0.0%        0.0%      
+==============================================================================
+
+##############################################################################
+# ROLLUP — tuning schedule (3 repeats)
+##############################################################################
+  Micro-average Precision: 100.0%
+  Micro-average Recall:    28.6%
+  Micro-average F1:        44.4%
+  Totals: TP=30 FP=0 FN=75
+
+  Per-repeat aggregates
+    repeat 1: P=100.0% R=28.6% F1=44.4% (TP=10 FP=0 FN=25)
+    repeat 2: P=100.0% R=28.6% F1=44.4% (TP=10 FP=0 FN=25)
+    repeat 3: P=100.0% R=28.6% F1=44.4% (TP=10 FP=0 FN=25)
+
+  Per anomaly type (all repeats)
+    Type          TP    FP    FN    Precision   Recall      F1        
+    spike         15    0     30    100.0%      33.3%       50.0%     
+    error_rate    15    0     15    100.0%      50.0%       66.7%     
+    rage_pattern  0     0     30    0.0%        0.0%        0.0%      
+##############################################################################
+
+******************************************************************************
+* SCHEDULE: held_out
+* Injections/round: 7
+*   t=20s  rage_pattern → rage_pattern
+*   t=26s  metric_spike → spike
+*   t=34s  error_burst → error_rate
+*   t=40s  metric_spike → spike
+*   t=46s  rage_pattern → rage_pattern
+*   t=52s  error_burst → error_rate
+*   t=58s  metric_spike → spike
+* Rounds=5  Repeats=3
+******************************************************************************
+
+>>> Repeat 1/3 (held_out)
+
+--- Round 1 (service_id=69) ---
+  Schedule: held_out
+  Started:  2026-10-03T22:00:16.683193+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject rage_pattern → expect detection_type=rage_pattern (gt #1, ok=True)
+  [ 26.2s] inject metric_spike → expect detection_type=spike (gt #2, ok=True)
+  [ 34.3s] inject error_burst → expect detection_type=error_rate (gt #3, ok=True)
+  [ 40.4s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 46.4s] inject rage_pattern → expect detection_type=rage_pattern (gt #5, ok=True)
+  [ 52.5s] inject error_burst → expect detection_type=error_rate (gt #6, ok=True)
+  [ 58.5s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 3
+    id=560 status=open type=rage_pattern created=2026-10-03T22:00:37.325328
+    id=561 status=open type=spike created=2026-10-03T22:00:42.758764
+    id=562 status=open type=error_rate created=2026-10-03T22:00:50.090388
+  Aggregate: TP=3 FP=0 FN=4 | P=100.0% R=42.9% F1=60.0%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+  Mean detection latency: 133ms
+
+--- Round 2 (service_id=70) ---
+  Schedule: held_out
+  Started:  2026-10-03T22:01:19.758160+00:00
+  Injections scheduled: 7
+  [ 20.1s] inject rage_pattern → expect detection_type=rage_pattern (gt #1, ok=True)
+  [ 26.2s] inject metric_spike → expect detection_type=spike (gt #2, ok=True)
+  [ 34.2s] inject error_burst → expect detection_type=error_rate (gt #3, ok=True)
+  [ 40.3s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 46.3s] inject rage_pattern → expect detection_type=rage_pattern (gt #5, ok=True)
+  [ 52.4s] inject error_burst → expect detection_type=error_rate (gt #6, ok=True)
+  [ 58.4s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 3
+    id=563 status=open type=rage_pattern created=2026-10-03T22:01:40.611456
+    id=564 status=open type=spike created=2026-10-03T22:01:46.080636
+    id=565 status=open type=error_rate created=2026-10-03T22:01:53.444331
+  Aggregate: TP=3 FP=0 FN=4 | P=100.0% R=42.9% F1=60.0%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+  Mean detection latency: 272ms
+
+--- Round 3 (service_id=71) ---
+  Schedule: held_out
+  Started:  2026-10-03T22:02:22.728647+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject rage_pattern → expect detection_type=rage_pattern (gt #1, ok=True)
+  [ 26.2s] inject metric_spike → expect detection_type=spike (gt #2, ok=True)
+  [ 34.3s] inject error_burst → expect detection_type=error_rate (gt #3, ok=True)
+  [ 40.3s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 46.4s] inject rage_pattern → expect detection_type=rage_pattern (gt #5, ok=True)
+  [ 52.4s] inject error_burst → expect detection_type=error_rate (gt #6, ok=True)
+  [ 58.5s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 3
+    id=566 status=open type=rage_pattern created=2026-10-03T22:02:43.910862
+    id=567 status=open type=spike created=2026-10-03T22:02:49.386432
+    id=568 status=open type=error_rate created=2026-10-03T22:02:56.631475
+  Aggregate: TP=3 FP=0 FN=4 | P=100.0% R=42.9% F1=60.0%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+  Mean detection latency: 438ms
+
+--- Round 4 (service_id=72) ---
+  Schedule: held_out
+  Started:  2026-10-03T22:03:25.771866+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject rage_pattern → expect detection_type=rage_pattern (gt #1, ok=True)
+  [ 26.2s] inject metric_spike → expect detection_type=spike (gt #2, ok=True)
+  [ 34.3s] inject error_burst → expect detection_type=error_rate (gt #3, ok=True)
+  [ 40.4s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 46.4s] inject rage_pattern → expect detection_type=rage_pattern (gt #5, ok=True)
+  [ 52.5s] inject error_burst → expect detection_type=error_rate (gt #6, ok=True)
+  [ 58.5s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 3
+    id=569 status=open type=rage_pattern created=2026-10-03T22:03:47.108209
+    id=570 status=open type=spike created=2026-10-03T22:03:52.621745
+    id=571 status=open type=error_rate created=2026-10-03T22:03:59.949851
+  Aggregate: TP=3 FP=0 FN=4 | P=100.0% R=42.9% F1=60.0%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+  Mean detection latency: 583ms
+
+--- Round 5 (service_id=73) ---
+  Schedule: held_out
+  Started:  2026-10-03T22:04:28.810265+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject rage_pattern → expect detection_type=rage_pattern (gt #1, ok=True)
+  [ 26.2s] inject metric_spike → expect detection_type=spike (gt #2, ok=True)
+  [ 34.3s] inject error_burst → expect detection_type=error_rate (gt #3, ok=True)
+  [ 40.3s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 46.4s] inject rage_pattern → expect detection_type=rage_pattern (gt #5, ok=True)
+  [ 52.5s] inject error_burst → expect detection_type=error_rate (gt #6, ok=True)
+  [ 58.5s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 3
+    id=572 status=open type=rage_pattern created=2026-10-03T22:04:50.419879
+    id=573 status=open type=spike created=2026-10-03T22:04:55.973341
+    id=574 status=open type=error_rate created=2026-10-03T22:05:03.214945
+  Aggregate: TP=3 FP=0 FN=4 | P=100.0% R=42.9% F1=60.0%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+  Mean detection latency: 758ms
+
+==============================================================================
+VIGIL DETECTION BENCHMARK — schedule=held_out repeat=1
+==============================================================================
+  Rounds:                  5
+  Ground-truth injections: 35
+  Incidents created:       15
+  Match window:            10s
+  Eval design:             fresh service per round; production dedup on
+
+  Round   Svc     TP    FP    FN    Precision   Recall      F1        MTTD      
+  --------------------------------------------------------------------------
+  1       69      3     0     4     100.0%      42.9%       60.0%        133ms
+  2       70      3     0     4     100.0%      42.9%       60.0%        272ms
+  3       71      3     0     4     100.0%      42.9%       60.0%        438ms
+  4       72      3     0     4     100.0%      42.9%       60.0%        583ms
+  5       73      3     0     4     100.0%      42.9%       60.0%        758ms
+  --------------------------------------------------------------------------
+  TOTAL           15    0     20    100.0%      42.9%       60.0%        437ms
+
+  Aggregate metrics
+    Precision: 100.0%
+    Recall:    42.9%
+    F1 Score:  60.0%
+    Mean Detection Latency (MTTD): 436.8ms
+
+  Per anomaly type (detection_type)
+    Type          TP    FP    FN    Precision   Recall      F1        
+    spike         5     0     10    100.0%      33.3%       50.0%     
+    error_rate    5     0     5     100.0%      50.0%       66.7%     
+    rage_pattern  5     0     5     100.0%      50.0%       66.7%     
+==============================================================================
+
+>>> Repeat 2/3 (held_out)
+
+--- Round 1 (service_id=74) ---
+  Schedule: held_out
+  Started:  2026-10-03T22:05:32.893648+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject rage_pattern → expect detection_type=rage_pattern (gt #1, ok=True)
+  [ 26.2s] inject metric_spike → expect detection_type=spike (gt #2, ok=True)
+  [ 34.3s] inject error_burst → expect detection_type=error_rate (gt #3, ok=True)
+  [ 40.3s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 46.4s] inject rage_pattern → expect detection_type=rage_pattern (gt #5, ok=True)
+  [ 52.5s] inject error_burst → expect detection_type=error_rate (gt #6, ok=True)
+  [ 58.5s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 3
+    id=575 status=open type=rage_pattern created=2026-10-03T22:05:54.611831
+    id=576 status=open type=spike created=2026-10-03T22:06:00.159254
+    id=577 status=open type=error_rate created=2026-10-03T22:06:07.477987
+  Aggregate: TP=3 FP=0 FN=4 | P=100.0% R=42.9% F1=60.0%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+  Mean detection latency: 895ms
+
+--- Round 2 (service_id=75) ---
+  Schedule: held_out
+  Started:  2026-10-03T22:06:35.974006+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject rage_pattern → expect detection_type=rage_pattern (gt #1, ok=True)
+  [ 26.2s] inject metric_spike → expect detection_type=spike (gt #2, ok=True)
+  [ 34.3s] inject error_burst → expect detection_type=error_rate (gt #3, ok=True)
+  [ 40.4s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 46.4s] inject rage_pattern → expect detection_type=rage_pattern (gt #5, ok=True)
+  [ 52.5s] inject error_burst → expect detection_type=error_rate (gt #6, ok=True)
+  [ 58.5s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 3
+    id=578 status=open type=rage_pattern created=2026-10-03T22:06:57.846665
+    id=579 status=open type=spike created=2026-10-03T22:07:03.474919
+    id=580 status=open type=error_rate created=2026-10-03T22:07:10.839804
+  Aggregate: TP=3 FP=0 FN=4 | P=100.0% R=42.9% F1=60.0%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+  Mean detection latency: 1134ms
+
+--- Round 3 (service_id=76) ---
+  Schedule: held_out
+  Started:  2026-10-03T22:07:39.043173+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject rage_pattern → expect detection_type=rage_pattern (gt #1, ok=True)
+  [ 26.3s] inject metric_spike → expect detection_type=spike (gt #2, ok=True)
+  [ 34.4s] inject error_burst → expect detection_type=error_rate (gt #3, ok=True)
+  [ 40.4s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 46.5s] inject rage_pattern → expect detection_type=rage_pattern (gt #5, ok=True)
+  [ 52.5s] inject error_burst → expect detection_type=error_rate (gt #6, ok=True)
+  [ 58.6s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 3
+    id=581 status=open type=rage_pattern created=2026-10-03T22:07:58.313408
+    id=582 status=open type=spike created=2026-10-03T22:08:06.811438
+    id=583 status=open type=error_rate created=2026-10-03T22:08:14.180410
+  Aggregate: TP=3 FP=0 FN=4 | P=100.0% R=42.9% F1=60.0%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+  Mean detection latency: 707ms
+
+--- Round 4 (service_id=77) ---
+  Schedule: held_out
+  Started:  2026-10-03T22:08:42.171721+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject rage_pattern → expect detection_type=rage_pattern (gt #1, ok=True)
+  [ 26.2s] inject metric_spike → expect detection_type=spike (gt #2, ok=True)
+  [ 34.3s] inject error_burst → expect detection_type=error_rate (gt #3, ok=True)
+  [ 40.3s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 46.4s] inject rage_pattern → expect detection_type=rage_pattern (gt #5, ok=True)
+  [ 52.4s] inject error_burst → expect detection_type=error_rate (gt #6, ok=True)
+  [ 58.5s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 3
+    id=584 status=open type=rage_pattern created=2026-10-03T22:09:01.608564
+    id=585 status=open type=spike created=2026-10-03T22:09:10.056812
+    id=586 status=open type=error_rate created=2026-10-03T22:09:17.443302
+  Aggregate: TP=3 FP=0 FN=4 | P=100.0% R=42.9% F1=60.0%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+  Mean detection latency: 839ms
+
+--- Round 5 (service_id=78) ---
+  Schedule: held_out
+  Started:  2026-10-03T22:09:45.216033+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject rage_pattern → expect detection_type=rage_pattern (gt #1, ok=True)
+  [ 26.3s] inject metric_spike → expect detection_type=spike (gt #2, ok=True)
+  [ 34.4s] inject error_burst → expect detection_type=error_rate (gt #3, ok=True)
+  [ 40.5s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 46.5s] inject rage_pattern → expect detection_type=rage_pattern (gt #5, ok=True)
+  [ 52.5s] inject error_burst → expect detection_type=error_rate (gt #6, ok=True)
+  [ 58.6s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 3
+    id=587 status=open type=rage_pattern created=2026-10-03T22:10:04.922807
+    id=588 status=open type=spike created=2026-10-03T22:10:10.446073
+    id=589 status=open type=error_rate created=2026-10-03T22:10:20.909267
+  Aggregate: TP=3 FP=0 FN=4 | P=100.0% R=42.9% F1=60.0%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+  Mean detection latency: 401ms
+
+==============================================================================
+VIGIL DETECTION BENCHMARK — schedule=held_out repeat=2
+==============================================================================
+  Rounds:                  5
+  Ground-truth injections: 35
+  Incidents created:       15
+  Match window:            10s
+  Eval design:             fresh service per round; production dedup on
+
+  Round   Svc     TP    FP    FN    Precision   Recall      F1        MTTD      
+  --------------------------------------------------------------------------
+  1       74      3     0     4     100.0%      42.9%       60.0%        895ms
+  2       75      3     0     4     100.0%      42.9%       60.0%       1134ms
+  3       76      3     0     4     100.0%      42.9%       60.0%        707ms
+  4       77      3     0     4     100.0%      42.9%       60.0%        839ms
+  5       78      3     0     4     100.0%      42.9%       60.0%        401ms
+  --------------------------------------------------------------------------
+  TOTAL           15    0     20    100.0%      42.9%       60.0%        795ms
+
+  Aggregate metrics
+    Precision: 100.0%
+    Recall:    42.9%
+    F1 Score:  60.0%
+    Mean Detection Latency (MTTD): 795.1ms
+
+  Per anomaly type (detection_type)
+    Type          TP    FP    FN    Precision   Recall      F1        
+    spike         5     0     10    100.0%      33.3%       50.0%     
+    error_rate    5     0     5     100.0%      50.0%       66.7%     
+    rage_pattern  5     0     5     100.0%      50.0%       66.7%     
+==============================================================================
+
+>>> Repeat 3/3 (held_out)
+
+--- Round 1 (service_id=79) ---
+  Schedule: held_out
+  Started:  2026-10-03T22:10:49.388369+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject rage_pattern → expect detection_type=rage_pattern (gt #1, ok=True)
+  [ 26.2s] inject metric_spike → expect detection_type=spike (gt #2, ok=True)
+  [ 34.3s] inject error_burst → expect detection_type=error_rate (gt #3, ok=True)
+  [ 40.4s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 46.5s] inject rage_pattern → expect detection_type=rage_pattern (gt #5, ok=True)
+  [ 52.6s] inject error_burst → expect detection_type=error_rate (gt #6, ok=True)
+  [ 58.7s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 3
+    id=590 status=open type=rage_pattern created=2026-10-03T22:11:09.140563
+    id=591 status=open type=spike created=2026-10-03T22:11:14.729413
+    id=592 status=open type=error_rate created=2026-10-03T22:11:25.072163
+  Aggregate: TP=3 FP=0 FN=4 | P=100.0% R=42.9% F1=60.0%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+  Mean detection latency: 417ms
+
+--- Round 2 (service_id=80) ---
+  Schedule: held_out
+  Started:  2026-10-03T22:11:52.588270+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject rage_pattern → expect detection_type=rage_pattern (gt #1, ok=True)
+  [ 26.3s] inject metric_spike → expect detection_type=spike (gt #2, ok=True)
+  [ 34.4s] inject error_burst → expect detection_type=error_rate (gt #3, ok=True)
+  [ 40.4s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 46.5s] inject rage_pattern → expect detection_type=rage_pattern (gt #5, ok=True)
+  [ 52.6s] inject error_burst → expect detection_type=error_rate (gt #6, ok=True)
+  [ 58.6s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 3
+    id=593 status=open type=rage_pattern created=2026-10-03T22:12:12.690698
+    id=594 status=open type=spike created=2026-10-03T22:12:18.178634
+    id=595 status=open type=error_rate created=2026-10-03T22:12:28.584586
+  Aggregate: TP=3 FP=0 FN=4 | P=100.0% R=42.9% F1=60.0%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+  Mean detection latency: 502ms
+
+--- Round 3 (service_id=81) ---
+  Schedule: held_out
+  Started:  2026-10-03T22:12:55.771024+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject rage_pattern → expect detection_type=rage_pattern (gt #1, ok=True)
+  [ 26.2s] inject metric_spike → expect detection_type=spike (gt #2, ok=True)
+  [ 34.3s] inject error_burst → expect detection_type=error_rate (gt #3, ok=True)
+  [ 40.4s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 46.4s] inject rage_pattern → expect detection_type=rage_pattern (gt #5, ok=True)
+  [ 52.4s] inject error_burst → expect detection_type=error_rate (gt #6, ok=True)
+  [ 58.5s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 3
+    id=596 status=open type=rage_pattern created=2026-10-03T22:13:16.028990
+    id=597 status=open type=spike created=2026-10-03T22:13:21.519660
+    id=598 status=open type=error_rate created=2026-10-03T22:13:31.810022
+  Aggregate: TP=3 FP=0 FN=4 | P=100.0% R=42.9% F1=60.0%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+  Mean detection latency: 559ms
+
+--- Round 4 (service_id=82) ---
+  Schedule: held_out
+  Started:  2026-10-03T22:13:58.786085+00:00
+  Injections scheduled: 7
+  [ 20.2s] inject rage_pattern → expect detection_type=rage_pattern (gt #1, ok=True)
+  [ 26.2s] inject metric_spike → expect detection_type=spike (gt #2, ok=True)
+  [ 34.2s] inject error_burst → expect detection_type=error_rate (gt #3, ok=True)
+  [ 40.3s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 46.3s] inject rage_pattern → expect detection_type=rage_pattern (gt #5, ok=True)
+  [ 52.4s] inject error_burst → expect detection_type=error_rate (gt #6, ok=True)
+  [ 58.5s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 3
+    id=599 status=open type=rage_pattern created=2026-10-03T22:14:19.347867
+    id=600 status=open type=spike created=2026-10-03T22:14:24.769780
+    id=601 status=open type=error_rate created=2026-10-03T22:14:32.034254
+  Aggregate: TP=3 FP=0 FN=4 | P=100.0% R=42.9% F1=60.0%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+  Mean detection latency: 123ms
+
+--- Round 5 (service_id=83) ---
+  Schedule: held_out
+  Started:  2026-10-03T22:15:01.780515+00:00
+  Injections scheduled: 7
+  [ 20.1s] inject rage_pattern → expect detection_type=rage_pattern (gt #1, ok=True)
+  [ 26.2s] inject metric_spike → expect detection_type=spike (gt #2, ok=True)
+  [ 34.3s] inject error_burst → expect detection_type=error_rate (gt #3, ok=True)
+  [ 40.4s] inject metric_spike → expect detection_type=spike (gt #4, ok=True)
+  [ 46.4s] inject rage_pattern → expect detection_type=rage_pattern (gt #5, ok=True)
+  [ 52.5s] inject error_burst → expect detection_type=error_rate (gt #6, ok=True)
+  [ 58.5s] inject metric_spike → expect detection_type=spike (gt #7, ok=True)
+  Incidents created this round: 3
+    id=602 status=open type=rage_pattern created=2026-10-03T22:15:22.542988
+    id=603 status=open type=spike created=2026-10-03T22:15:27.996048
+    id=604 status=open type=error_rate created=2026-10-03T22:15:35.367638
+  Aggregate: TP=3 FP=0 FN=4 | P=100.0% R=42.9% F1=60.0%
+    spike          TP=1 FP=0 FN=2 P=100.0% R=33.3% F1=50.0%
+    error_rate     TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+    rage_pattern   TP=1 FP=0 FN=1 P=100.0% R=50.0% F1=66.7%
+  Mean detection latency: 192ms
+
+==============================================================================
+VIGIL DETECTION BENCHMARK — schedule=held_out repeat=3
+==============================================================================
+  Rounds:                  5
+  Ground-truth injections: 35
+  Incidents created:       15
+  Match window:            10s
+  Eval design:             fresh service per round; production dedup on
+
+  Round   Svc     TP    FP    FN    Precision   Recall      F1        MTTD      
+  --------------------------------------------------------------------------
+  1       79      3     0     4     100.0%      42.9%       60.0%        417ms
+  2       80      3     0     4     100.0%      42.9%       60.0%        502ms
+  3       81      3     0     4     100.0%      42.9%       60.0%        559ms
+  4       82      3     0     4     100.0%      42.9%       60.0%        123ms
+  5       83      3     0     4     100.0%      42.9%       60.0%        192ms
+  --------------------------------------------------------------------------
+  TOTAL           15    0     20    100.0%      42.9%       60.0%        359ms
+
+  Aggregate metrics
+    Precision: 100.0%
+    Recall:    42.9%
+    F1 Score:  60.0%
+    Mean Detection Latency (MTTD): 358.5ms
+
+  Per anomaly type (detection_type)
+    Type          TP    FP    FN    Precision   Recall      F1        
+    spike         5     0     10    100.0%      33.3%       50.0%     
+    error_rate    5     0     5     100.0%      50.0%       66.7%     
+    rage_pattern  5     0     5     100.0%      50.0%       66.7%     
+==============================================================================
+
+##############################################################################
+# ROLLUP — held_out schedule (3 repeats)
+##############################################################################
+  Micro-average Precision: 100.0%
+  Micro-average Recall:    42.9%
+  Micro-average F1:        60.0%
+  Totals: TP=45 FP=0 FN=60
+
+  Per-repeat aggregates
+    repeat 1: P=100.0% R=42.9% F1=60.0% (TP=15 FP=0 FN=20)
+    repeat 2: P=100.0% R=42.9% F1=60.0% (TP=15 FP=0 FN=20)
+    repeat 3: P=100.0% R=42.9% F1=60.0% (TP=15 FP=0 FN=20)
+
+  Per anomaly type (all repeats)
+    Type          TP    FP    FN    Precision   Recall      F1        
+    spike         15    0     30    100.0%      33.3%       50.0%     
+    error_rate    15    0     15    100.0%      50.0%       66.7%     
+    rage_pattern  15    0     15    100.0%      50.0%       66.7%     
+##############################################################################

@@ -1,4 +1,4 @@
-﻿# Python
+# Python
 venv/
 .venv/
 __pycache__/
@@ -11,6 +11,7 @@ node_modules/
 # Environment and secrets
 .env*
 !.env.example
+!.env*.example
 credentials.json
 token.json
 .thread_cache.json*
@@ -18,5 +19,6 @@ token.json
 # General / IDE
 .DS_Store
 *.log
+!benchmarks/results/*.log
 .cursor/
 .vercel

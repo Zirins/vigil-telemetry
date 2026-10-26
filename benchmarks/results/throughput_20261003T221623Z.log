@@ -1,0 +1,41 @@
+Registering throughput service at http://127.0.0.1:8001 ...
+Service registered: throughput-service-964c4526 (id=84)
+
+--- Tier: 10 events/sec ---
+  Batch size: 10 events every 1.00s (target 10/s)
+  Result: sent=300 confirmed=300 actual=9.9/s db=9.9/s mean=15ms p99=17ms failed=0/30
+
+--- Tier: 25 events/sec ---
+  Batch size: 25 events every 1.00s (target 25/s)
+  Result: sent=750 confirmed=750 actual=24.8/s db=24.8/s mean=25ms p99=28ms failed=0/30
+
+--- Tier: 50 events/sec ---
+  Batch size: 50 events every 1.00s (target 50/s)
+  Result: sent=1500 confirmed=1500 actual=49.6/s db=49.6/s mean=40ms p99=42ms failed=0/30
+
+--- Tier: 100 events/sec ---
+  Batch size: 100 events every 1.00s (target 100/s)
+  Result: sent=3000 confirmed=3000 actual=99.2/s db=99.2/s mean=73ms p99=89ms failed=0/30
+
+========================================================================================
+VIGIL INGESTION THROUGHPUT BENCHMARK
+========================================================================================
+  Service:       throughput-service-964c4526 (id=84)
+  Tier duration: 30s
+  Rate tiers:    10, 25, 50, 100 events/sec
+  Early stop:    >5% batch failure rate
+
+  Tier  Target    Actual    DB Rate   Mean     P95      P99      Failed      Confirmed   Status
+  ------------------------------------------------------------------------------------
+  10    10.0/s    9.9/s     9.9/s         15ms     16ms     17ms 0/30        300/300     OK
+  25    25.0/s    24.8/s    24.8/s        25ms     27ms     28ms 0/30        750/750     OK
+  50    50.0/s    49.6/s    49.6/s        40ms     42ms     42ms 0/30        1500/1500   OK
+  100   100.0/s   99.2/s    99.2/s        73ms     75ms     89ms 0/30        3000/3000   OK
+  ------------------------------------------------------------------------------------
+
+  Resume bullets
+  ----------------------------------------
+  - Processed 99.2/s with 89ms P99 POST /events latency
+  - Sustained 100 events/sec throughput with zero failed batches over 30s
+  - Zero failed batches up to 100 events/sec (mean latency 73ms)
+========================================================================================

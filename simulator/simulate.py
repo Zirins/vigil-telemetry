@@ -5,7 +5,7 @@ telemetry to the Vigil backend, injecting occasional anomalies to trigger detect
 
 Run from project root:
     python simulator/simulate.py
-    python simulator/simulate.py --duration 90 --rate 6 --base-url http://localhost:8000
+    python simulator/simulate.py --duration 90 --rate 6 --base-url http://localhost:8001
 """
 
 from __future__ import annotations
@@ -20,7 +20,7 @@ from typing import Any
 
 import httpx
 
-DEFAULT_BASE_URL = "http://localhost:8000"
+DEFAULT_BASE_URL = "http://localhost:8001"
 DEFAULT_SERVICE_NAME = "payment-service"
 DEFAULT_DURATION = 120.0
 DEFAULT_RATE = 4.0

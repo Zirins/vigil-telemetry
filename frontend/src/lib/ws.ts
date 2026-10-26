@@ -2,7 +2,7 @@ import type { WSMessage } from "@/types";
 
 const WS_BASE =
   process.env.NEXT_PUBLIC_WS_URL?.replace(/\/$/, "") ??
-  "ws://localhost:8000";
+  "ws://localhost:8001";
 
 type MessageHandler = (message: WSMessage) => void;
 
