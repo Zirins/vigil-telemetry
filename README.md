@@ -1,8 +1,6 @@
 # Vigil
 
-AI-powered observability and incident intelligence platform. Vigil ingests application logs and metrics, detects anomalies in real time, creates incidents automatically, and supports structured post-incident analysis using Claude (summary, root cause, remediation steps; opt-in via `ENABLE_LIVE_AI_ANALYSIS` or on demand via backfill script).
-
-This is a streaming telemetry pipeline with anomaly detection — not a log viewer with a chatbot bolted on.
+Vigil ingests application logs and metrics over HTTP in batches, flags anomalies with statistical detectors (z-score spike, error-rate burst, repeated-error pattern), opens incidents automatically, and streams events to a live dashboard over WebSockets. Optional post-incident analysis with Claude (summary, root cause, remediation steps) is off by default; enable it with ENABLE_LIVE_AI_ANALYSIS.
 
 Built with AI coding assistants; behavior verified via the test suite and benchmarks below.
 
@@ -195,22 +193,13 @@ See [`benchmarks/results/COMMANDS.md`](benchmarks/results/COMMANDS.md) for the e
 
 ## Running Tests
 
-Start PostgreSQL (exposed on host port **5434**):
+(after steps 1–3 of Run Locally: Postgres running, backend/.env created, venv activated)
 
-```bash
-docker run --name vigil-postgres \
-  -e POSTGRES_USER=postgres \
-  -e POSTGRES_PASSWORD=postgres \
-  -e POSTGRES_DB=vigil \
-  -p 5434:5432 \
-  -v vigil-postgres-data:/var/lib/postgresql/data \
-  -d postgres:16
-```
-
-Run database migrations and execute the test suite:
+Postgres from step 1 must be running. Run migrations and execute the test suite:
 
 ```bash
 cd backend
+pip install -r requirements-dev.txt
 alembic upgrade head
 pytest
 ```
@@ -282,7 +271,7 @@ All HTTP traffic goes through `frontend/src/lib/api.ts`; WebSocket through `fron
 ## Project Structure
 
 ```
-Vigil/
+vigil-telemetry/
 ├── backend/
 │   ├── app/                     # FastAPI application
 │   ├── alembic/                 # Database migrations
@@ -313,6 +302,7 @@ Vigil/
 | `ANTHROPIC_API_KEY` | Optional | Anthropic API key for incident AI analysis (only needed when `ENABLE_LIVE_AI_ANALYSIS=true` or running manual backfill script) |
 | `ENABLE_LIVE_AI_ANALYSIS` | No | Default: `false`. Opt-in flag to run live async Claude analysis upon incident creation |
 | `ENVIRONMENT` | No | Default: `development` (enables SQL echo) |
+| `CORS_ORIGINS` | No | Comma-separated allowed frontend origins (default `http://localhost:3000,http://localhost:3001`); never `*` |
 | `NEXT_PUBLIC_API_URL` | Frontend | Backend HTTP base URL |
 | `NEXT_PUBLIC_WS_URL` | Frontend | Backend WebSocket base URL (`ws://` or `wss://`) |
 
